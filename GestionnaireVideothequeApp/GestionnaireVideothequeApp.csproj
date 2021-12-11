@@ -139,6 +139,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ExemplaireController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -237,6 +238,11 @@
     <Content Include="Views\Exemplaire\Edit.cshtml" />
     <Content Include="Views\Exemplaire\Details.cshtml" />
     <Content Include="Views\Exemplaire\Delete.cshtml" />
+    <Content Include="Views\Location\Index.cshtml" />
+    <Content Include="Views\Location\Create.cshtml" />
+    <Content Include="Views\Location\Edit.cshtml" />
+    <Content Include="Views\Location\Details.cshtml" />
+    <Content Include="Views\Location\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

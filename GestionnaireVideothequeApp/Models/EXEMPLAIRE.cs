@@ -16,16 +16,17 @@ namespace GestionnaireVideothequeApp.Models
     public partial class EXEMPLAIRE
     {
         public int EXEMPLAIREID { get; set; }
+        
         [Required]
-
         public string SUPPORT { get; set; }
+
         [Required]
         public System.DateTime DATEACQUISITION { get; set; }
-        [Required]
 
+        [Required]
         public bool DISPONIBILITE { get; set; }
-        [Required]
 
+        [Required]
         public string ETATEXEMPLAIRE { get; set; }
     }
 }

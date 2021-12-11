@@ -15,27 +15,24 @@ namespace GestionnaireVideothequeApp.Models
     using System.Diagnostics;
     using System.Text.RegularExpressions;
 
-    [DebuggerDisplay("{" + nameof(GetDebuggerDisplay) + "(),nq}")]
     public partial class FILM
     {
 
         public int FILMID { get; set; }
-        [Required]
 
+        [Required]
         public string NOMFILM { get; set; }
-        [Required]
 
+        [Required]
         public string CATEGORIE { get; set; }
+
         [Required]
         public string REALISATEUR { get; set; }
-        [Required]
 
+        [Required]
        // [RegularExpression("^[1-9]{4}-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])$", ErrorMessage = "Le format date est : yyyy-mm-dd")]
         public DateTime DATESORTIE { get; set; }
-        //[Required]
-        private string GetDebuggerDisplay()
-        {
-            return ToString();
-        }
+        
+       
     }
 }

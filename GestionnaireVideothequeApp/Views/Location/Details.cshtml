@@ -1,0 +1,50 @@
+﻿@model GestionnaireVideothequeApp.Models.LOCATION
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LOCATION</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DATEDEBUT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATEDEBUT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DATEFIN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATEFIN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DATERETOUREFF)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATERETOUREFF)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MONTANT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MONTANT)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LOCATIONID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
