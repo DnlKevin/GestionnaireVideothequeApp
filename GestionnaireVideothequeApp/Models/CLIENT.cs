@@ -11,15 +11,28 @@ namespace GestionnaireVideothequeApp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class CLIENT
     {
         public int CLIENTID { get; set; }
+
+        [Required]
         public string NOM { get; set; }
+
+        [Required]
         public string PRENOM { get; set; }
+
+        [Required]
         public Nullable<System.DateTime> DATENAISSANCE { get; set; }
+
+        [Required]
         public string NUMEROTEL { get; set; }
+
+        [Required]
         public string ADRESSE { get; set; }
+
+        [Required]
         public string MAIL { get; set; }
     }
 }

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<GestionnaireVideothequeApp.Models.CLIENT>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NOM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRENOM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DATENAISSANCE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NUMEROTEL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ADRESSE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MAIL)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRENOM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DATENAISSANCE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NUMEROTEL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ADRESSE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MAIL)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CLIENTID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CLIENTID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CLIENTID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,66 @@
+﻿@model GestionnaireVideothequeApp.Models.CLIENT
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CLIENT</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NOM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PRENOM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRENOM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DATENAISSANCE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATENAISSANCE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NUMEROTEL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NUMEROTEL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ADRESSE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ADRESSE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MAIL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MAIL)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CLIENTID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
