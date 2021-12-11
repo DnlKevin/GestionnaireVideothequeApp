@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -54,22 +55,41 @@ namespace GestionnaireVideothequeApp.Controllers
         }
 
         // GET: Home/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            return View();
+            if(id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var FilmToEdit = (from f in _db.FILM
+                              where f.FILMID == id
+                              select f).First();
+
+            if(FilmToEdit == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(FilmToEdit);
         }
 
         // POST: Home/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(FILM FilmToEdit)
         {
+            if (!ModelState.IsValid)
+                return View();
+
             try
             {
                 // TODO: Add update logic here
+                _db.Entry(FilmToEdit).State = System.Data.Entity.EntityState.Modified;
+                _db.SaveChanges();
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
                 return View();
             }
