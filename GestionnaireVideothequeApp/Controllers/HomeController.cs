@@ -19,9 +19,19 @@ namespace GestionnaireVideothequeApp.Controllers
         }
 
         // GET: Home/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
-            return View();
+            if(id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            FILM film = _db.FILM.Find(id);
+            if(film == null)
+            {
+                return HttpNotFound();
+            }
+            return View(film);
         }
 
         // GET: Home/Create
@@ -94,11 +104,21 @@ namespace GestionnaireVideothequeApp.Controllers
                 return View();
             }
         }
-
+        
         // GET: Home/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
-            return View();
+            if(id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            FILM film = _db.FILM.Find(id);
+            if(film == null)
+            {
+                return HttpNotFound();
+            }
+            return View(film);
         }
 
         // POST: Home/Delete/5
@@ -108,6 +128,9 @@ namespace GestionnaireVideothequeApp.Controllers
             try
             {
                 // TODO: Add delete logic here
+                FILM film = _db.FILM.Find(id);
+                _db.FILM.Remove(film);
+                _db.SaveChanges();
 
                 return RedirectToAction("Index");
             }

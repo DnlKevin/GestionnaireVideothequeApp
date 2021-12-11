@@ -1,0 +1,50 @@
+﻿@model GestionnaireVideothequeApp.Models.FILM
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>FILM</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMFILM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMFILM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CATEGORIE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CATEGORIE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.REALISATEUR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.REALISATEUR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DATESORTIE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATESORTIE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FILMID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
