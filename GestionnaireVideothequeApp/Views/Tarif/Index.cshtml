@@ -1,0 +1,45 @@
+﻿@model IEnumerable<GestionnaireVideothequeApp.Models.TARIF>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NOMTARIF)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SUPPORT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TARIFJOURNALIER)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOMTARIF)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SUPPORT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TARIFJOURNALIER)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TARIFID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TARIFID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TARIFID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,42 @@
+﻿@model GestionnaireVideothequeApp.Models.TARIF
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TARIF</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMTARIF)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMTARIF)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SUPPORT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SUPPORT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TARIFJOURNALIER)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TARIFJOURNALIER)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TARIFID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
