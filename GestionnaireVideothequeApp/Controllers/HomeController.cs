@@ -122,8 +122,8 @@ namespace GestionnaireVideothequeApp.Controllers
         }
 
         // POST: Home/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
         {
             try
             {

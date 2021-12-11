@@ -20,9 +20,19 @@ namespace GestionnaireVideothequeApp.Controllers
         }
 
         // GET: Exemplaire/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
-            return View();
+            if(id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            EXEMPLAIRE exemplaire = _db.EXEMPLAIRE.Find(id);
+            if(exemplaire == null)
+            {
+                return HttpNotFound();
+            }
+            return View(exemplaire);
         }
 
         // GET: Exemplaire/Create
@@ -97,18 +107,32 @@ namespace GestionnaireVideothequeApp.Controllers
         }
 
         // GET: Exemplaire/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
-            return View();
+            if(id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            EXEMPLAIRE exemplaire = _db.EXEMPLAIRE.Find(id);
+            if(exemplaire == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(exemplaire);
         }
 
         // POST: Exemplaire/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
         {
             try
             {
-                // TODO: Add delete logic here
+                // Ici on supprime l'enregistrement
+                EXEMPLAIRE exemplaire = _db.EXEMPLAIRE.Find(id);
+                _db.EXEMPLAIRE.Remove(exemplaire);
+                _db.SaveChanges();
 
                 return RedirectToAction("Index");
             }

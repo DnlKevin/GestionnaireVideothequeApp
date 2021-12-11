@@ -1,0 +1,56 @@
+﻿@model GestionnaireVideothequeApp.Models.EXEMPLAIRE
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>EXEMPLAIRE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SUPPORT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SUPPORT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DATEACQUISITION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATEACQUISITION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DISPONIBILITE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DISPONIBILITE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ETATEXEMPLAIRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ETATEXEMPLAIRE)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

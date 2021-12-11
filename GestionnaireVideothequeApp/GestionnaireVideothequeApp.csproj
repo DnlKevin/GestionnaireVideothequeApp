@@ -235,6 +235,8 @@
     <Content Include="Views\Exemplaire\Index.cshtml" />
     <Content Include="Views\Exemplaire\Create.cshtml" />
     <Content Include="Views\Exemplaire\Edit.cshtml" />
+    <Content Include="Views\Exemplaire\Details.cshtml" />
+    <Content Include="Views\Exemplaire\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
