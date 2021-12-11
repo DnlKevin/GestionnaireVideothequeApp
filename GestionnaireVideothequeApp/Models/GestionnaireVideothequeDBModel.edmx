@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CLIENT">
+          <Key>
+            <PropertyRef Name="CLIENTID" />
+          </Key>
+          <Property Name="CLIENTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOM" Type="nvarchar" MaxLength="50" />
+          <Property Name="PRENOM" Type="nvarchar" MaxLength="50" />
+          <Property Name="DATENAISSANCE" Type="datetime" />
+          <Property Name="NUMEROTEL" Type="nvarchar" MaxLength="50" />
+          <Property Name="ADRESSE" Type="nvarchar" MaxLength="50" />
+          <Property Name="MAIL" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="EXEMPLAIRE">
+          <Key>
+            <PropertyRef Name="EXEMPLAIREID" />
+          </Key>
+          <Property Name="EXEMPLAIREID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SUPPORT" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DATEACQUISITION" Type="datetime" Nullable="false" />
+          <Property Name="DISPONIBILITE" Type="bit" Nullable="false" />
+          <Property Name="ETATEXEMPLAIRE" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FACTURE">
+          <Key>
+            <PropertyRef Name="FACTUREID" />
+          </Key>
+          <Property Name="FACTUREID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DATEFACTURE" Type="datetime" Nullable="false" />
+          <Property Name="MONTANT" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FILM">
+          <Key>
+            <PropertyRef Name="FILMID" />
+          </Key>
+          <Property Name="FILMID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMFILM" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CATEGORIE" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="REALISATEUR" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DATESORTIE" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LOCATION">
+          <Key>
+            <PropertyRef Name="LOCATIONID" />
+          </Key>
+          <Property Name="LOCATIONID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DATEDEBUT" Type="datetime" Nullable="false" />
+          <Property Name="DATEFIN" Type="datetime" Nullable="false" />
+          <Property Name="DATERETOUREFF" Type="datetime" />
+          <Property Name="MONTANT" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TARIF">
+          <Key>
+            <PropertyRef Name="TARIFID" />
+          </Key>
+          <Property Name="TARIFID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMTARIF" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SUPPORT" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TARIFJOURNALIER" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ModelsStoreContainer">
+          <EntitySet Name="CLIENT" EntityType="Self.CLIENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EXEMPLAIRE" EntityType="Self.EXEMPLAIRE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FACTURE" EntityType="Self.FACTURE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FILM" EntityType="Self.FILM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOCATION" EntityType="Self.LOCATION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TARIF" EntityType="Self.TARIF" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Models" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CLIENT">
+          <Key>
+            <PropertyRef Name="CLIENTID" />
+          </Key>
+          <Property Name="CLIENTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PRENOM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DATENAISSANCE" Type="DateTime" Precision="3" />
+          <Property Name="NUMEROTEL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ADRESSE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="EXEMPLAIRE">
+          <Key>
+            <PropertyRef Name="EXEMPLAIREID" />
+          </Key>
+          <Property Name="EXEMPLAIREID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SUPPORT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DATEACQUISITION" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DISPONIBILITE" Type="Boolean" Nullable="false" />
+          <Property Name="ETATEXEMPLAIRE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FACTURE">
+          <Key>
+            <PropertyRef Name="FACTUREID" />
+          </Key>
+          <Property Name="FACTUREID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DATEFACTURE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MONTANT" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FILM">
+          <Key>
+            <PropertyRef Name="FILMID" />
+          </Key>
+          <Property Name="FILMID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMFILM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CATEGORIE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="REALISATEUR" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DATESORTIE" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LOCATION">
+          <Key>
+            <PropertyRef Name="LOCATIONID" />
+          </Key>
+          <Property Name="LOCATIONID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DATEDEBUT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DATEFIN" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DATERETOUREFF" Type="DateTime" Precision="3" />
+          <Property Name="MONTANT" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TARIF">
+          <Key>
+            <PropertyRef Name="TARIFID" />
+          </Key>
+          <Property Name="TARIFID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMTARIF" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SUPPORT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TARIFJOURNALIER" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="GestionnaireVideothequeDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CLIENT" EntityType="Self.CLIENT" />
+          <EntitySet Name="EXEMPLAIRE" EntityType="Self.EXEMPLAIRE" />
+          <EntitySet Name="FACTURE" EntityType="Self.FACTURE" />
+          <EntitySet Name="FILM" EntityType="Self.FILM" />
+          <EntitySet Name="LOCATION" EntityType="Self.LOCATION" />
+          <EntitySet Name="TARIF" EntityType="Self.TARIF" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelsStoreContainer" CdmEntityContainer="GestionnaireVideothequeDBEntities">
+          <EntitySetMapping Name="CLIENT">
+            <EntityTypeMapping TypeName="Models.CLIENT">
+              <MappingFragment StoreEntitySet="CLIENT">
+                <ScalarProperty Name="CLIENTID" ColumnName="CLIENTID" />
+                <ScalarProperty Name="NOM" ColumnName="NOM" />
+                <ScalarProperty Name="PRENOM" ColumnName="PRENOM" />
+                <ScalarProperty Name="DATENAISSANCE" ColumnName="DATENAISSANCE" />
+                <ScalarProperty Name="NUMEROTEL" ColumnName="NUMEROTEL" />
+                <ScalarProperty Name="ADRESSE" ColumnName="ADRESSE" />
+                <ScalarProperty Name="MAIL" ColumnName="MAIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EXEMPLAIRE">
+            <EntityTypeMapping TypeName="Models.EXEMPLAIRE">
+              <MappingFragment StoreEntitySet="EXEMPLAIRE">
+                <ScalarProperty Name="EXEMPLAIREID" ColumnName="EXEMPLAIREID" />
+                <ScalarProperty Name="SUPPORT" ColumnName="SUPPORT" />
+                <ScalarProperty Name="DATEACQUISITION" ColumnName="DATEACQUISITION" />
+                <ScalarProperty Name="DISPONIBILITE" ColumnName="DISPONIBILITE" />
+                <ScalarProperty Name="ETATEXEMPLAIRE" ColumnName="ETATEXEMPLAIRE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FACTURE">
+            <EntityTypeMapping TypeName="Models.FACTURE">
+              <MappingFragment StoreEntitySet="FACTURE">
+                <ScalarProperty Name="FACTUREID" ColumnName="FACTUREID" />
+                <ScalarProperty Name="DATEFACTURE" ColumnName="DATEFACTURE" />
+                <ScalarProperty Name="MONTANT" ColumnName="MONTANT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FILM">
+            <EntityTypeMapping TypeName="Models.FILM">
+              <MappingFragment StoreEntitySet="FILM">
+                <ScalarProperty Name="FILMID" ColumnName="FILMID" />
+                <ScalarProperty Name="NOMFILM" ColumnName="NOMFILM" />
+                <ScalarProperty Name="CATEGORIE" ColumnName="CATEGORIE" />
+                <ScalarProperty Name="REALISATEUR" ColumnName="REALISATEUR" />
+                <ScalarProperty Name="DATESORTIE" ColumnName="DATESORTIE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOCATION">
+            <EntityTypeMapping TypeName="Models.LOCATION">
+              <MappingFragment StoreEntitySet="LOCATION">
+                <ScalarProperty Name="LOCATIONID" ColumnName="LOCATIONID" />
+                <ScalarProperty Name="DATEDEBUT" ColumnName="DATEDEBUT" />
+                <ScalarProperty Name="DATEFIN" ColumnName="DATEFIN" />
+                <ScalarProperty Name="DATERETOUREFF" ColumnName="DATERETOUREFF" />
+                <ScalarProperty Name="MONTANT" ColumnName="MONTANT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TARIF">
+            <EntityTypeMapping TypeName="Models.TARIF">
+              <MappingFragment StoreEntitySet="TARIF">
+                <ScalarProperty Name="TARIFID" ColumnName="TARIFID" />
+                <ScalarProperty Name="NOMTARIF" ColumnName="NOMTARIF" />
+                <ScalarProperty Name="SUPPORT" ColumnName="SUPPORT" />
+                <ScalarProperty Name="TARIFJOURNALIER" ColumnName="TARIFJOURNALIER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
