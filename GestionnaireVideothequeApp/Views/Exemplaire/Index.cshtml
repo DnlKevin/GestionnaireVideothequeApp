@@ -1,0 +1,51 @@
+﻿@model IEnumerable<GestionnaireVideothequeApp.Models.EXEMPLAIRE>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SUPPORT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DATEACQUISITION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DISPONIBILITE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ETATEXEMPLAIRE)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SUPPORT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DATEACQUISITION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DISPONIBILITE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ETATEXEMPLAIRE)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EXEMPLAIREID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EXEMPLAIREID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EXEMPLAIREID })
+        </td>
+    </tr>
+}
+
+</table>
