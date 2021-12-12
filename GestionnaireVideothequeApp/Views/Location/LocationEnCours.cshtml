@@ -1,14 +1,16 @@
 ﻿@model IEnumerable<GestionnaireVideothequeApp.Models.LOCATION>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "LocationEnCours";
 }
 
 <br/>
 
 <p>
-    @Html.ActionLink("Ajouter une nouvelle location", "Create", "Location") | @Html.ActionLink("Voir les locations en cours", "LocationEnCours", "Location")
+    @Html.ActionLink("Ajouter une nouvelle location", "Create") | @Html.ActionLink("Retour à la liste des locations", "Index", "Location")
 </p>
+
+
 <table class="table">
     <tr>
         <th>

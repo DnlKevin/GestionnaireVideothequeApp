@@ -129,7 +129,9 @@ namespace GestionnaireVideothequeApp.Controllers
             }
             return View(await query.AsNoTracking().ToListAsync());
 
-        }// GET Search
+        }
+        
+        // GET Search
         [HttpGet]
         public async Task<ActionResult> SearchByDate(string searchDate)
         {

@@ -268,6 +268,7 @@
     <Content Include="Views\Home\SearchByCategory.cshtml" />
     <Content Include="Views\Home\SearchByRealisator.cshtml" />
     <Content Include="Views\Home\SearchByDate.cshtml" />
+    <Content Include="Views\Location\LocationEnCours.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
