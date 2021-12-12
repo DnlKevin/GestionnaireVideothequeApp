@@ -11,11 +11,22 @@ namespace GestionnaireVideothequeApp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class FACTURE
     {
         public int FACTUREID { get; set; }
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public System.DateTime DATEFACTURE { get; set; }
         public int MONTANT { get; set; }
+
+        //Relationships
+        public List<CLIENT> Clients { get; set; }
+
+        [ForeignKey("CLIENTID")]
+        public int CLIENTID { get; set; }
+        public CLIENT Client { get; set; }
+        
     }
 }

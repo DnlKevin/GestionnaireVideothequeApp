@@ -42,24 +42,12 @@
 }
 <h1>Gestionnaire de Vidéothèque</h1>
 
-<h2>Accueil</h2>
+
 
 <a href="Create"><input type="submit" value="Ajouter un film" class="btn btn-primary" /></a>
+@Html.ActionLink("Liste des exemplaires", "Index", "Exemplaire") | | @Html.ActionLink("Factures", "Index", "Facture") | | @Html.ActionLink("Tarifs", "Index", "Tarif") 
 
 
 
-
-
-<h2>Search</h2>
-
-<div class="dropdown">
-    <button class="boutonmenuprincipal">Recherche par</button>
-    <div class="dropdown-child">
-        <a href="SearchByName">Nom</a>
-        <a href="SearchByCategory">Catégorie</a>
-        <a href="SearchByRealisator">Réalisateur</a>
-        <a href="SearchByDate">Année</a>
-    </div>
-</div>
 
 

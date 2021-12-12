@@ -10,7 +10,7 @@
     
         <style>
             .boutonmenuprincipal {
-                background-color: #333333;
+                background-color: black;
                 color: white;
                 border: none;
                 cursor: pointer;
@@ -62,9 +62,13 @@
                     <li>@Html.ActionLink("Films", "Index", "Home")</li>
                     <li>@Html.ActionLink("Locations", "Index", "Location")</li>
                     <li>@Html.ActionLink("Clients", "Index", "Client")</li>
+                    <li>@Html.ActionLink("Liste des exemplaires", "Index", "Exemplaire")</li>
+                    <li>@Html.ActionLink("Factures", "Index", "Facture")</li>
+                    <li>@Html.ActionLink("Tarifs", "Index", "Tarif")</li>
                     <li>@Html.ActionLink("À propos de", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li><div class="dropdown">
+                    <li>
+                        <div class="dropdown">
                             <button class="boutonmenuprincipal">Rechercher</button>
                             <div class="dropdown-child">
                                 @Html.ActionLink("Nom", "SearchByName", "Home")

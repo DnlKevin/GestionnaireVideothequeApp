@@ -11,13 +11,15 @@ namespace GestionnaireVideothequeApp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class FILM
     {
         public int FILMID { get; set; }
         public string NOMFILM { get; set; }
         public string CATEGORIE { get; set; }
         public string REALISATEUR { get; set; }
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public System.DateTime DATESORTIE { get; set; }
     }
 }
