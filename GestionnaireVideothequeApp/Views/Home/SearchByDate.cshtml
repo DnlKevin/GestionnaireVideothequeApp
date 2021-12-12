@@ -1,0 +1,62 @@
+﻿@model IEnumerable<GestionnaireVideothequeApp.Models.FILM>
+
+@{
+    ViewBag.Title = "SearchByDate";
+}
+
+<h2>Recherche par date</h2>
+<br />
+<form method="get" asp-action="Search">
+    <p>
+        <!-- <select name="search-filter" size="1">
+        <option value="1">Nom</option>
+        <option value="2">Catégorie</option>
+        <option value="3">Réalisateur</option>
+        <option value="4">Année</option>
+    </select>-->
+
+        <input type="search" placeholder="Cherchez par date" value="@ViewData["GetFilmByDate"]" name="searchDate" style="width:500px;" />
+        <input type="submit" value="Rechercher" class="btn btn-primary" />
+        <a href="SearchByName">Nom</a> | <a href="SearchByCategory">Catégorie</a> | <a href="SearchByRealisator">Réalisateur</a> | <a href="SearchByDate">Date</a>
+
+    </p>
+
+</form>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NOMFILM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CATEGORIE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.REALISATEUR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DATESORTIE)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NOMFILM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CATEGORIE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.REALISATEUR)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DATESORTIE)
+            </td>
+
+        </tr>
+    }
+
+</table>

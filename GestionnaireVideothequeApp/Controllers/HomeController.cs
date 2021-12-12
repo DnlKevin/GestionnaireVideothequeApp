@@ -1,8 +1,10 @@
 ﻿using GestionnaireVideothequeApp.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -82,31 +84,67 @@ namespace GestionnaireVideothequeApp.Controllers
             }
         }
 
-        // GET Search
         public ActionResult Search()
         {
-            return View("Search");
+            return View();
         }
-
-        [HttpPost]
-        public ActionResult Search(string name)
+        // GET Search
+        [HttpGet]
+        public async Task<ActionResult> SearchByName(string searchName)
         {
-            if(name == null)
+            ViewData["GetFilmByName"] = searchName;
+
+            var query = from n in _db.FILM select n;
+            if (!String.IsNullOrEmpty(searchName))
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                query = query.Where(n => n.NOMFILM.Contains(searchName));
             }
-
-            var FilmToSearch = (from f in _db.FILM
-                                where f.NOMFILM == name
-                                select f).First();
-
-            if(FilmToSearch == null)
-            {
-                return HttpNotFound();
-            }
-
-            return View(FilmToSearch);
+            return View(await query.AsNoTracking().ToListAsync());
         }
+
+        // GET Search
+        [HttpGet]
+        public async Task<ActionResult> SearchByCategory(string searchCategory)
+        {
+            ViewData["GetFilmByCategory"] = searchCategory;
+
+            var query = from c in _db.FILM select c;
+            if (!String.IsNullOrEmpty(searchCategory))
+            {
+                query = query.Where(c => c.CATEGORIE.Contains(searchCategory));
+            }
+            return View(await query.AsNoTracking().ToListAsync());
+
+        }// GET Search
+        [HttpGet]
+        public async Task<ActionResult> SearchByRealisator(string searchRealisator)
+        {
+            ViewData["GetFilmByRealisator"] = searchRealisator;
+
+            var query = from r in _db.FILM select r;
+
+            if (!String.IsNullOrEmpty(searchRealisator))
+            {
+                query = query.Where(r => r.REALISATEUR.Contains(searchRealisator));
+            }
+            return View(await query.AsNoTracking().ToListAsync());
+
+        }// GET Search
+        [HttpGet]
+        public async Task<ActionResult> SearchByDate(string searchDate)
+        {
+            ViewData["GetFilmByDate"] = searchDate;
+
+            var query = from n in _db.FILM select n;
+            if (!String.IsNullOrEmpty(searchDate))
+            {
+                query = query.Where(n => n.DATESORTIE.Equals(searchDate));
+            }
+            return View(await query.AsNoTracking().ToListAsync());
+        }
+
+
+
 
         // GET: Home/Edit/5
         public ActionResult Edit(int? id)

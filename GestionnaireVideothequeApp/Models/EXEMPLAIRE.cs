@@ -11,23 +11,13 @@ namespace GestionnaireVideothequeApp.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class EXEMPLAIRE
     {
         public int EXEMPLAIREID { get; set; }
-        
-        [Required]
         public string SUPPORT { get; set; }
-
-        [Required]
-        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
         public System.DateTime DATEACQUISITION { get; set; }
-
-        [Required]
         public bool DISPONIBILITE { get; set; }
-
-        [Required]
         public string ETATEXEMPLAIRE { get; set; }
     }
 }

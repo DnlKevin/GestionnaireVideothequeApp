@@ -11,25 +11,13 @@ namespace GestionnaireVideothequeApp.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class LOCATION
     {
         public int LOCATIONID { get; set; }
-        
-        [Required]
-        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
         public System.DateTime DATEDEBUT { get; set; }
-
-        [Required]
-        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
         public System.DateTime DATEFIN { get; set; }
-
-        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
         public Nullable<System.DateTime> DATERETOUREFF { get; set; }
-
-        [Required]
         public int MONTANT { get; set; }
-
     }
 }

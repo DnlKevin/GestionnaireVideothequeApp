@@ -1,12 +1,50 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Mon application ASP.NET</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    
+        <style>
+            .boutonmenuprincipal {
+                background-color: #333333;
+                color: white;
+                border: none;
+                cursor: pointer;
+                padding: 10px;
+                margin-top: 10px;
+                font-size: 15px;
+            }
+
+                .boutonmenuprincipal:hover {
+                    background-color: black;
+                }
+
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+
+            .dropdown-child {
+                display: none;
+                background-color: dimgrey;
+                min-width: 25px;
+            }
+
+                .dropdown-child a {
+                    color: white;
+                    padding: 10px;
+                    text-decoration: none;
+                    display: block;
+                }
+
+            .dropdown:hover .dropdown-child {
+                display: block;
+            }
+        </style>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -21,10 +59,20 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Accueil", "Accueil", "Home")</li>
+                    <li>@Html.ActionLink("Films", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Clients", "Index", "Client")</li>
                     <li>@Html.ActionLink("À propos de", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Rechercher", "Search", "Home")</li>
+                    <li><div class="dropdown">
+                            <button class="boutonmenuprincipal">Rechercher</button>
+                            <div class="dropdown-child">
+                                @Html.ActionLink("Nom", "SearchByName", "Home")
+                                @Html.ActionLink("Catégorie", "SearchByCategory", "Home")
+                                @Html.ActionLink("Réalisateur", "SearchByRealisator", "Home")
+                                @Html.ActionLink("Date", "SearchByDate", "Home")
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
