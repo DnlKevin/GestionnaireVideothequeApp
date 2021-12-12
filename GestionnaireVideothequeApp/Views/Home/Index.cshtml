@@ -4,24 +4,24 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Liste des films de la vidéothèque</h2>
 
 <p>
-    @Html.ActionLink("Ajouter un nouveau film", "Ajouter")
+    @Html.ActionLink("Ajouter un nouveau film", "Create") | @Html.ActionLink("Rechercher", "Search", "Home")
 </p>
 <table class="table">
     <tr>
         <th>
-            Nom
+            Nom 
         </th>
         <th>
-            Catégorie
+            Catégorie 
         </th>
         <th>
-            Réalisateur
+            Réalisateur 
         </th>
         <th>
-            Date de sortie
+            Date de sortie 
         </th>
         <th></th>
     </tr>
@@ -40,10 +40,10 @@
         <td>
             @Html.DisplayFor(modelItem => item.DATESORTIE)
         </td>
-        <td>
-            @Html.ActionLink("Editer", "Editer", new { id=item.FILMID }) |
-            @Html.ActionLink("Détails", "Détails", new { id=item.FILMID }) |
-            @Html.ActionLink("Supprimer", "Supprimer", new { id=item.FILMID })
+        <td> <!--NE PAS MODIFIER-->
+            @Html.ActionLink("Editer", "Edit", new { id=item.FILMID }) |
+            @Html.ActionLink("Détails", "Details", new { id=item.FILMID }) |
+            @Html.ActionLink("Supprimer", "Delete", new { id=item.FILMID })
         </td>
     </tr>
 }

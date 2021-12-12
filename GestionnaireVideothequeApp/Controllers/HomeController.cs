@@ -12,6 +12,24 @@ namespace GestionnaireVideothequeApp.Controllers
     {
         private GestionnaireVideothequeDBEntities _db = new GestionnaireVideothequeDBEntities();
 
+        // GET Accueil
+        public ActionResult Accueil()
+        {
+            return View("Accueil");
+        }
+
+        // GET About
+        public ActionResult About()
+        {
+            return View("About");
+        }
+
+        // GET Contact
+        public ActionResult Contact()
+        {
+            return View("Contact");
+        }
+
         // GET: Home
         public ActionResult Index()
         {
@@ -21,13 +39,13 @@ namespace GestionnaireVideothequeApp.Controllers
         // GET: Home/Details/5
         public ActionResult Details(int? id)
         {
-            if(id == null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
             FILM film = _db.FILM.Find(id);
-            if(film == null)
+            if (film == null)
             {
                 return HttpNotFound();
             }
@@ -54,7 +72,7 @@ namespace GestionnaireVideothequeApp.Controllers
 
                 //On sauvegarde
                 _db.SaveChanges();
-                
+
                 //On redirige vers la vue Index
                 return RedirectToAction("Index");
             }
@@ -62,6 +80,32 @@ namespace GestionnaireVideothequeApp.Controllers
             {
                 return View();
             }
+        }
+
+        // GET Search
+        public ActionResult Search()
+        {
+            return View("Search");
+        }
+
+        [HttpPost]
+        public ActionResult Search(string name)
+        {
+            if(name == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var FilmToSearch = (from f in _db.FILM
+                                where f.NOMFILM == name
+                                select f).First();
+
+            if(FilmToSearch == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(FilmToSearch);
         }
 
         // GET: Home/Edit/5
