@@ -7,45 +7,47 @@
 <h2>Liste des films de la vidéothèque</h2>
 <br />
 @Html.ActionLink("Ajouter un film", "Create", "Home")
-  
+
 
 <table class="table">
     <tr>
         <th>
-            Nom 
+            Nom
         </th>
         <th>
-            Catégorie 
+            Catégorie
         </th>
         <th>
-            Réalisateur 
+            Réalisateur
         </th>
         <th>
-            Date de sortie 
+            Date de sortie
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NOMFILM)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CATEGORIE)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.REALISATEUR)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DATESORTIE)
-        </td>
-        <td> <!--NE PAS MODIFIER-->
-            @Html.ActionLink("Editer", "Edit", new { id=item.FILMID }) |
-            @Html.ActionLink("Détails", "Details", new { id=item.FILMID }) |
-            @Html.ActionLink("Supprimer", "Delete", new { id=item.FILMID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NOMFILM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CATEGORIE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.REALISATEUR)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DATESORTIE)
+            </td>
+            <td>
+                <!--NE PAS MODIFIER-->
+                @Html.ActionLink("Editer", "Edit", new { id = item.FILMID }) |
+                @Html.ActionLink("Détails", "Details", new { id = item.FILMID }) |
+                @Html.ActionLink("Supprimer", "Delete", new { id = item.FILMID })
+            </td>
+        </tr>
+    }
 
 </table>
