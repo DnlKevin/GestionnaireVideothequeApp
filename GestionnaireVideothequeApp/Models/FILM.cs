@@ -30,9 +30,11 @@ namespace GestionnaireVideothequeApp.Models
         public string REALISATEUR { get; set; }
 
         [Required]
-       // [RegularExpression("^[1-9]{4}-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])$", ErrorMessage = "Le format date est : yyyy-mm-dd")]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
+        // [RegularExpression("^[1-9]{4}-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])$", ErrorMessage = "Le format date est : yyyy-mm-dd")]
         public DateTime DATESORTIE { get; set; }
-        
+
+                 
        
     }
 }

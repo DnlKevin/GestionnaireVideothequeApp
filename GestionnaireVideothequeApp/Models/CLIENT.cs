@@ -24,6 +24,7 @@ namespace GestionnaireVideothequeApp.Models
         public string PRENOM { get; set; }
 
         [Required]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
         public Nullable<System.DateTime> DATENAISSANCE { get; set; }
 
         [Required]

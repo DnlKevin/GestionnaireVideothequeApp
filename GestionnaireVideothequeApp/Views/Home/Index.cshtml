@@ -7,21 +7,21 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Ajouter un nouveau film", "Ajouter")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.NOMFILM)
+            Nom
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CATEGORIE)
+            Catégorie
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.REALISATEUR)
+            Réalisateur
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DATESORTIE)
+            Date de sortie
         </th>
         <th></th>
     </tr>
@@ -41,9 +41,9 @@
             @Html.DisplayFor(modelItem => item.DATESORTIE)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.FILMID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.FILMID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.FILMID })
+            @Html.ActionLink("Editer", "Editer", new { id=item.FILMID }) |
+            @Html.ActionLink("Détails", "Détails", new { id=item.FILMID }) |
+            @Html.ActionLink("Supprimer", "Supprimer", new { id=item.FILMID })
         </td>
     </tr>
 }

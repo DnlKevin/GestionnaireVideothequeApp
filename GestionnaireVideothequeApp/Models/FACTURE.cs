@@ -18,6 +18,7 @@ namespace GestionnaireVideothequeApp.Models
         public int FACTUREID { get; set; }
 
         [Required]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
         public System.DateTime DATEFACTURE { get; set; }
 
         [Required]

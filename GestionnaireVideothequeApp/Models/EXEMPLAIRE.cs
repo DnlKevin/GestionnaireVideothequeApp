@@ -21,6 +21,7 @@ namespace GestionnaireVideothequeApp.Models
         public string SUPPORT { get; set; }
 
         [Required]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
         public System.DateTime DATEACQUISITION { get; set; }
 
         [Required]
