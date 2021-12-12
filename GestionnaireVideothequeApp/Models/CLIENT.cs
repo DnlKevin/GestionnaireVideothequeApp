@@ -11,13 +11,17 @@ namespace GestionnaireVideothequeApp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class CLIENT
     {
         public int CLIENTID { get; set; }
         public string NOM { get; set; }
         public string PRENOM { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> DATENAISSANCE { get; set; }
+
         public string NUMEROTEL { get; set; }
         public string ADRESSE { get; set; }
         public string MAIL { get; set; }
