@@ -15,6 +15,7 @@ namespace GestionnaireVideothequeApp.Models
 
     public partial class CLIENT
     {
+        [Key]
         public int CLIENTID { get; set; }
         public string NOM { get; set; }
         public string PRENOM { get; set; }

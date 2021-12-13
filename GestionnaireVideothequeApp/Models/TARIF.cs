@@ -11,9 +11,11 @@ namespace GestionnaireVideothequeApp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class TARIF
     {
+        [Key]
         public int TARIFID { get; set; }
         public string NOMTARIF { get; set; }
         public string SUPPORT { get; set; }

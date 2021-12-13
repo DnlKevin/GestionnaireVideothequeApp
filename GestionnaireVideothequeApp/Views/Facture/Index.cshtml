@@ -20,19 +20,25 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.DATEFACTURE)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MONTANT)
-        </td>
-        <td>
-            @Html.ActionLink("Editer", "Edit", new { id=item.FACTUREID }) |
-            @Html.ActionLink("Détails", "Details", new { id=item.FACTUREID }) |
-            @Html.ActionLink("Supprimer", "Delete", new { id=item.FACTUREID })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.DATEFACTURE)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MONTANT)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Client.CLIENTID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Location.LOCATIONID)
+    </td>
+    <td>
+        @Html.ActionLink("Editer", "Edit", new { id = item.FACTUREID }) |
+        @Html.ActionLink("Détails", "Details", new { id = item.FACTUREID }) |
+        @Html.ActionLink("Supprimer", "Delete", new { id = item.FACTUREID })
+    </td>
+</tr>
 }
 
 </table>

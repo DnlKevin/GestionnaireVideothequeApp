@@ -53,9 +53,10 @@
             @Html.DisplayFor(modelItem => item.MAIL)
         </td>
         <td>
-            @Html.ActionLink("Editer", "Edit", new { id=item.CLIENTID }) |
-            @Html.ActionLink("Détails", "Details", new { id=item.CLIENTID }) |
-            @Html.ActionLink("Supprimer", "Delete", new { id=item.CLIENTID })
+            @Html.ActionLink("Locations en cours", "LocParClient", "Client") |
+            @Html.ActionLink("Editer", "Edit", new { id = item.CLIENTID }) |
+            @Html.ActionLink("Détails", "Details", new { id = item.CLIENTID }) |
+            @Html.ActionLink("Supprimer", "Delete", new { id = item.CLIENTID })
         </td>
     </tr>
 }

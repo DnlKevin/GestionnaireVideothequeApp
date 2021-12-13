@@ -16,6 +16,7 @@ namespace GestionnaireVideothequeApp.Models
 
     public partial class LOCATION
     {
+        [Key]
         public int LOCATIONID { get; set; }
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public System.DateTime DATEDEBUT { get; set; }

@@ -15,6 +15,7 @@ namespace GestionnaireVideothequeApp.Models
 
     public partial class FILM
     {
+        [Key]
         public int FILMID { get; set; }
         public string NOMFILM { get; set; }
         public string CATEGORIE { get; set; }

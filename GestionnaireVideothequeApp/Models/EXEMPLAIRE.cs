@@ -16,6 +16,7 @@ namespace GestionnaireVideothequeApp.Models
 
     public partial class EXEMPLAIRE
     {
+        [Key]
         public int EXEMPLAIREID { get; set; }
         public string SUPPORT { get; set; }
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]

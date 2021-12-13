@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -12,6 +13,40 @@ namespace GestionnaireVideothequeApp.Controllers
     public class ClientController : Controller
     {
         private GestionnaireVideothequeDBEntities _db = new GestionnaireVideothequeDBEntities();
+
+        public object EXEMPLAIREID { get; private set; }
+        public int CLIENTID { get; private set; }
+
+        // GET Films loués par un client
+        [HttpGet]
+        public async Task<ActionResult> LocParClient(string id)
+        {
+            // Requête SQL pour la 4 :
+            // SELECT* FROM EXEMPLAIRES 
+            //  WHERE ExemplaireId IN
+            // (SELECT ExemplaireId FROM LOCATIONS WHERE ClientId LIKE<ClientId passé en paramètre>)
+            ViewData["GetLocParClient"] = id;
+
+            var query =
+                (from EXEMPLAIRE in _db.LOCATION
+                 where EXEMPLAIREID != null
+                 select EXEMPLAIRE);
+
+            var query2 =
+                (from LOCATION in _db.LOCATION
+                 where CLIENTID.ToString() == id
+                 select CLIENTID);
+                  
+        if(query != query2)
+            {
+                System.Console.WriteLine("Ce client n'a pas de locations");
+                return View(await query.AsNoTracking().ToListAsync());
+
+            } else
+            {
+                return View(await query.AsNoTracking().ToListAsync());
+            }
+        }
 
         // GET: Client
         public ActionResult Index()

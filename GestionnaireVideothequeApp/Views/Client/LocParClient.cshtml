@@ -1,0 +1,66 @@
+﻿@model IEnumerable<GestionnaireVideothequeApp.Models.LOCATION>
+
+@{
+    ViewBag.Title = "LocParClient";
+}
+
+<h2>LocParClient</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DATEDEBUT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DATEFIN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DATERETOUREFF)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MONTANT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EXEMPLAIREID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FACTUREID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CLIENTID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DATEDEBUT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DATEFIN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DATERETOUREFF)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MONTANT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EXEMPLAIREID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FACTUREID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CLIENTID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.LOCATIONID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.LOCATIONID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.LOCATIONID })
+        </td>
+    </tr>
+}
+
+</table>

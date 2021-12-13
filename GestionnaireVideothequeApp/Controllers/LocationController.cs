@@ -14,6 +14,8 @@ namespace GestionnaireVideothequeApp.Controllers
     {
         private GestionnaireVideothequeDBEntities _db = new GestionnaireVideothequeDBEntities();
 
+
+
         // GET: Location
         public ActionResult Index()
         {

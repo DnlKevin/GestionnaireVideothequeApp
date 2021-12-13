@@ -16,6 +16,7 @@ namespace GestionnaireVideothequeApp.Models
 
     public partial class FACTURE
     {
+        [Key]
         public int FACTUREID { get; set; }
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public System.DateTime DATEFACTURE { get; set; }
@@ -23,10 +24,14 @@ namespace GestionnaireVideothequeApp.Models
 
         //Relationships
         public List<CLIENT> Clients { get; set; }
+        public List<LOCATION> Locations { get; set; }
 
         [ForeignKey("CLIENTID")]
         public int CLIENTID { get; set; }
         public CLIENT Client { get; set; }
         
+        [ForeignKey("LOCATIONID")]
+        public int LOCATIONID { get; set; }
+        public LOCATION Location { get; set; }
     }
 }

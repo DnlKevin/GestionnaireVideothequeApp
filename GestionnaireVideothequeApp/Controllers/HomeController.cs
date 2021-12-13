@@ -140,7 +140,7 @@ namespace GestionnaireVideothequeApp.Controllers
             var query = from n in _db.FILM select n;
             if (!String.IsNullOrEmpty(searchDate))
             {
-                query = query.Where(n => n.DATESORTIE.Equals(searchDate));
+                query = query.Where(n => n.DATESORTIE.ToString().Contains(searchDate));
             }
             return View(await query.AsNoTracking().ToListAsync());
         }

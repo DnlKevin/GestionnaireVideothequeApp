@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Exemplaires</h2>
 
 <p>
     @Html.ActionLink("Ajouter un nouvel exemplaire", "Create")
@@ -18,7 +18,7 @@
             @Html.DisplayNameFor(model => model.DATEACQUISITION)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DISPONIBILITE)
+            @Html.DisplayNameFor(model => model.DISPONIBILITE) (coché = indisponible)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ETATEXEMPLAIRE)
