@@ -69,13 +69,13 @@ namespace GestionnaireVideothequeApp.Controllers
 
             try
             {
-                //On ajoute le nouveau film à la collection de films
+                // On ajoute le nouvel exemplaire à la collection d'exemplaires
                 _db.FILM.Add(FilmToCreate);
 
-                //On sauvegarde
+                // On sauvegarde
                 _db.SaveChanges();
 
-                //On redirige vers la vue Index
+                // On redirige vers la vue Index
                 return RedirectToAction("Index");
             }
             catch
@@ -183,7 +183,7 @@ namespace GestionnaireVideothequeApp.Controllers
 
                 return RedirectToAction("Index");
             }
-            catch (Exception ex)
+            catch 
             {
                 return View();
             }

@@ -100,7 +100,7 @@ namespace GestionnaireVideothequeApp.Controllers
 
                 return RedirectToAction("Index");
             }
-            catch (Exception ex)
+            catch 
             {
                 return View();
             }

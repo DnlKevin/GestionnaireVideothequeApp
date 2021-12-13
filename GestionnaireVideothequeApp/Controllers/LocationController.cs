@@ -13,7 +13,7 @@ namespace GestionnaireVideothequeApp.Controllers
     public class LocationController : Controller
     {
         private GestionnaireVideothequeDBEntities _db = new GestionnaireVideothequeDBEntities();
-
+       
 
 
         // GET: Location
@@ -119,7 +119,7 @@ namespace GestionnaireVideothequeApp.Controllers
 
                 return RedirectToAction("Index");
             }
-            catch (Exception ex)
+            catch 
             {
                 return View();
             }
