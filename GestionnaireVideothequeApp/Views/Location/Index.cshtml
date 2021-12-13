@@ -14,6 +14,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.LOCATIONID)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.DATEDEBUT)
         </th>
         <th>
@@ -29,25 +32,28 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.DATEDEBUT)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DATEFIN)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DATERETOUREFF)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MONTANT)
-        </td>
-        <td>
-            @Html.ActionLink("Editer", "Edit", new { id=item.LOCATIONID }) |
-            @Html.ActionLink("Détails", "Details", new { id=item.LOCATIONID }) |
-            @Html.ActionLink("Supprimer", "Delete", new { id=item.LOCATIONID })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.LOCATIONID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DATEDEBUT)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DATEFIN)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DATERETOUREFF)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MONTANT)
+    </td>
+    <td>
+        @Html.ActionLink("Editer", "Edit", new { id = item.LOCATIONID }) |
+        @Html.ActionLink("Détails", "Details", new { id = item.LOCATIONID }) |
+        @Html.ActionLink("Supprimer", "Delete", new { id = item.LOCATIONID })
+    </td>
+</tr>
 }
 
 </table>

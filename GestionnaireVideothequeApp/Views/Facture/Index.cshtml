@@ -11,6 +11,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.FACTUREID)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.DATEFACTURE)
         </th>
         <th>
@@ -21,6 +24,9 @@
 
 @foreach (var item in Model) {
 <tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.FACTUREID)
+    </td>
     <td>
         @Html.DisplayFor(modelItem => item.DATEFACTURE)
     </td>
